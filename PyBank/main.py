@@ -52,19 +52,22 @@ print(f"Greatest Decrease in Profits: {total_number_of_months[month_greatest_dec
 
 
 # Finally we create the .txt document with the print part from above
-output = open("output.txt", "w")
+output = os.path.join("analysis", "output.txt")
 
-output1 = "Financial Analysis"
-output2 = "---------------------"
-output3 = str(f"Total Months:{len(total_number_of_months)}")
-output4 = str(f"Total: ${sum(total_profit_losses)}")
-output5 = str(f"Average Change: ${round(average,3)}")
-output6 = str(f"Greatest Increase in Profits: {total_number_of_months[month_greatest_increase]} (${(str(greatest_increase))})")
-output7 = str(f"Greatest Decrease in Profits: {total_number_of_months[month_greatest_decrease ]} (${(str(greatest_decrease))})")
-output.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(output1,output2,output3,output4,output5,output6, output7))
-
-
-
+with open(output,"w") as result:
+    result.write("Financial Analysis")
+    result.write("\n")
+    result.write("--------------------")
+    result.write("\n")
+    result.write(f"Total Months:{len(total_number_of_months)}")
+    result.write("\n")
+    result.write(f"Total: ${sum(total_profit_losses)}")
+    result.write("\n")
+    result.write(f"Average Change: ${round(average,3)}")
+    result.write("\n")
+    result.write(f"Greatest Increase in Profits: {total_number_of_months[month_greatest_increase]} (${(str(greatest_increase))})")
+    result.write("\n")
+    result.write(f"Greatest Decrease in Profits: {total_number_of_months[month_greatest_decrease ]} (${(str(greatest_decrease))})")
 
 
 
